@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-image: url("");
+    background-position: center;
+    background-size: cover;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 110px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(17px);
+    --webkit-backdrop-filter: blur(17px);
+    border-right: 1px solid rgba(255, 255, 255, 0.7);
+    transition: width 0.6s ease;
+}
+
+.sidebar:hover {
+    width: 260px;
+    transition: width 0.6s ease;
+}
+
+.sidebar .logo {
+    color: #000;
+    display: flex;
+    align-items: center;
+    padding: 25px 10px 15px;
+    transition: width 0.6s ease;
+}
+
+.logo img {
+    width: 100px;
+    border-radius: 90%;
+    transition: width 0.6s ease;
+}
+
+.logo h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-left: 15px;
+    display: none;
+    transition: width 0.6s ease;
+}
+
+.sidebar:hover .logo h2 {
+    display: block;
+    transition: width 0.6s ease;
+}
+
+.sidebar .links {
+    list-style: none;
+    margin-top: 20px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    height: calc(100% - 140px);
+    transition: width 0.6s ease;
+}
+
+.sidebar .links::-webkit-scrollbar {
+    display: none;
+    transition: width 0.6s ease;
+}
+
+.links li {
+    display: flex;
+    border-radius: 4px;
+    align-items: center;
+    transition: width 0.6s ease;
+}
+
+.links li:hover {
+    cursor: pointer;
+    background: #fff;
+    transition: width 0.6s ease;
+}
+
+.links h4 {
+    color: #222;
+    font-weight: 500;
+    display: none;
+    margin-bottom: 10px;
+    transition: width 0.6s ease;
+}
+
+.sidebar:hover .links h4 {
+    display: block;
+    transition: width 0.6s ease;
+}
+
+.links hr {
+    margin: 10px 8px;
+    border: 1px solid #4c4c4c;
+    transition: width 0.6s ease;
+}
+
+.sidebar:hover .links hr {
+    border-color: transparent;
+    transition: width 0.6s ease;
+}
+
+.links li span {
+    padding: 12px 10px;
+    transition: width 0.6s ease;
+}
+
+.links li a {
+    padding: 10px;
+    color: #000;
+    display: none;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: width 0.6s ease;
+}
+
+.sidebar:hover .links li a {
+    display: block;
+    transition: width 1s ease;
+}
+
+.links .logout-link {
+    margin-top: 20px;
+    transition: width 1s ease;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900);
+
+h1,
+p,
+a {
+    margin: 100;
+    padding: 0;
+    font-family: 'Lato';
+}
+
+h1 {
+    position: absolute;
+    top: 3%;
+    left: 42.5%;
+
+    font-size: 2.8em;
+    padding: 10px 0;
+    font-weight: 800;
+}
+
+p {
+    position: absolute;
+    top: 3%;
+    left: 42.5%;
+    font-size: 1.1em;
+    font-weight: 100;
+    letter-spacing: 5px;
+}
+
+.header {
+    height: 40px;
+    width: 100%;
+    padding: 60px 0;
+    text-align: center;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    -webkit-animation: gradient 15s ease infinite;
+    animation: gradient 15s ease infinite;
+    height: 40vh;
+    color: azure;
+}
+
+.gradient_bg:hover {
+    -webkit-animation: gradient 15s ease infinite;
+    animation: gradient 15s ease infinite;
+}
+
+@-webkit-keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-color: hsl(212, 40%, 12%);
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 110px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(17px);
+    --webkit-backdrop-filter: blur(17px);
+    border-right: 1px solid rgba(255, 255, 255, 0.7);
+    transition: width 0.6s ease;
+}
+
+.sidebar:hover {
+    width: 260px;
+    transition: width 0.6s ease;
+}
+
+.sidebar .logo {
+    color: #000;
+    display: flex;
+    align-items: center;
+    padding: 25px 10px 15px;
+    transition: width 0.6s ease;
+}
+
+.logo img {
+    width: 100px;
+    border-radius: 90%;
+    transition: width 0.6s ease;
+}
+
+.logo h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-left: 15px;
+    display: none;
+    transition: width 0.6s ease;
+}
+
+.sidebar:hover .logo h2 {
+    display: block;
+    transition: width 0.6s ease;
+}
+
+.sidebar .links {
+    list-style: none;
+    margin-top: 20px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    height: calc(100% - 140px);
+    transition: width 0.6s ease;
+}
+
+.sidebar .links::-webkit-scrollbar {
+    display: none;
+    transition: width 0.6s ease;
+}
+
+.links li {
+    display: flex;
+    border-radius: 4px;
+    align-items: center;
+    transition: width 0.6s ease;
+}
+
+.links li:hover {
+    cursor: pointer;
+    background: #fff;
+    transition: width 0.6s ease;
+}
+
+.links h4 {
+    color: #222;
+    font-weight: 500;
+    display: none;
+    margin-bottom: 10px;
+    transition: width 0.6s ease;
+}
+
+.sidebar:hover .links h4 {
+    display: block;
+    transition: width 0.6s ease;
+}
+
+.links hr {
+    margin: 10px 8px;
+    border: 1px solid #4c4c4c;
+    transition: width 0.6s ease;
+}
+
+.sidebar:hover .links hr {
+    border-color: transparent;
+    transition: width 0.6s ease;
+}
+
+.links li span {
+    padding: 12px 10px;
+    transition: width 0.6s ease;
+}
+
+.links li a {
+    padding: 10px;
+    color: #000;
+    display: none;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: width 0.6s ease;
+}
+
+.sidebar:hover .links li a {
+    display: block;
+    transition: width 1s ease;
+}
+
+.links .logout-link {
+    margin-top: 20px;
+    transition: width 1s ease;
+}
+
+.container {
+    margin: auto;
+    padding: 200px;
+
+    border-radius: 0.5rem;
+
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 500ms;
+
+
+}
+
+.container>div {
+    overflow: hidden;
+
+}
+
+.container:hover {
+    grid-template-rows: 1fr;
+}
+
+.h3 {
+    color: #fff
+}

@@ -1,0 +1,12 @@
+.container {
+        display: block;
+        width: 80%;
+        margin: auto;
+        text-align: center;
+
+}
+
+tbody {
+
+        align-items: center;
+}
