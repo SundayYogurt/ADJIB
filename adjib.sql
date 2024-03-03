@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2024 at 04:06 AM
+-- Generation Time: Mar 03, 2024 at 10:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -102,6 +102,13 @@ CREATE TABLE `tbl_order_detail` (
   `Order_Quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tbl_order_detail`
+--
+
+INSERT INTO `tbl_order_detail` (`Order_ID`, `Promotion_ID`, `Product_ID`, `Order_Quantity`) VALUES
+(1, 1, 8, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -162,8 +169,9 @@ CREATE TABLE `tbl_tracking` (
 --
 
 INSERT INTO `tbl_tracking` (`Track_ID`, `Courior_Name`) VALUES
-(235232353, 'FLASH'),
-(1231244321, 'kerry');
+(21246742, 'FLASH'),
+(1231244321, 'kerry'),
+(2147483647, 'KERRY');
 
 --
 -- Indexes for dumped tables
