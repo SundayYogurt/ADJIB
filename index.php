@@ -91,7 +91,7 @@
                 ADJIB STORE</h1><br>
             <p>ADMIN PAGE SERVICES</p>
 
-            <section class="container">
+        <section class="container">
                 <div class="card__container swiper">
                     <div class="card__content">
                         <div class="swiper-wrapper">
@@ -197,9 +197,12 @@
             <!--=============== MAIN JS ===============-->
             <script src="assets/js/main.js"></script>
 
-            <body>
-
-                <h2 class="mb-5"></h2>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+        
+        <h2 class="mb-5"></h2>
                 <button type="button" class="btn btn-primary py-12 px-4" data-toggle="modal" data-target="#exampleModalCenter">
                     โฆษณา
                 </button>
@@ -241,11 +244,6 @@
                 </div>
             </div>
         </div>
-
-        <script src="js/jquery.min.js"></script>
-        <script src="js/popper.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
 </body>
 
 </html>

@@ -1,23 +1,23 @@
 <?php
 
 require('../connect.php');
-if (isset($_GET['Product_ID'])) {
-    $strID = $_GET['Product_ID'];
+if (isset($_GET['Track_ID'])) {
+    $strID = $_GET['Track_ID'];
 }
 
 
 
 
-$sql = "DELETE FROM tbl_customer WHERE Customer_ID = :Customer_ID";
+$sql = "DELETE FROM tbl_tracking WHERE Track_ID = :Track_ID";
 $stml = $conn->prepare($sql);
-$stml->bindParam(':Customer_ID', $_GET['Customer_ID']);
+$stml->bindParam(':Track_ID', $_GET['Track_ID']);
 echo '
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
 
 if ($stml->execute()) {
-    $message = "Successfully delete " . $_GET['Customer_ID'] . ".";
+    $message = "Successfully delete " . $_GET['Track_ID'] . ".";
     echo '
         <script type="text/javascript">
         
@@ -30,7 +30,7 @@ if ($stml->execute()) {
                 timer: 2500,
                 showConfirmButton: "ok"
               }, function(){
-                    window.location.href = "indexcus.php";
+                    window.location.href = "indextrack.php";
               });
         });
         

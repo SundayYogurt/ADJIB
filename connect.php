@@ -1,8 +1,7 @@
-
 <?php
 $serverName = 'localhost';
 $userName = 'root';
-$userPassword = '';
+$userPassword = 'Dayz01gg';
 $dbname = 'adjib';
 
 try {

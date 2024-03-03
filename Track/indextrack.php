@@ -70,7 +70,7 @@
                 </li>
                 <li>
                     <span class="material-symbols-outlined">add</span>
-                    <a href="AddCUS.php">ADD NEW CUSTOMER</a>
+                    <a href="Addtrack.php">ADD NEW tracking</a>
                 </li>
                 <li class="logout-link">
                     <span class="material-symbols-outlined">logout</span>

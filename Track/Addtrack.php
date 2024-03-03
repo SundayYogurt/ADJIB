@@ -34,25 +34,20 @@
     <?php
     require '../connect.php';
 
-    $sql_select = 'SELECT * FROM tbl_customer';
+    $sql_select = 'SELECT * FROM tbl_tracking';
     $stmt_s = $conn->prepare($sql_select);
     $stmt_s->execute();
 
     if (isset($_POST['submit'])) {
-        if (!empty($_POST['Customer_ID'])) {
+        if (!empty($_POST['Track_ID'])) {
 
-            $sql = "INSERT INTO tbl_customer(Customer_ID,User_Name,Password,zipcode,District,Sub_District,House_no,Province) VALUES (:Customer_ID, :User_Name, :Password, :zipcode, :District, :Sub_District, :House_no, :Province)";
+            $sql = "INSERT INTO tbl_tracking(Track_ID ,Courior_Name) VALUES (:Track_ID, :Courior_Name)";
 
             $stmt = $conn->prepare($sql);
 
-            $stmt->bindParam(':Customer_ID', $_POST['Customer_ID']);
-            $stmt->bindParam(':User_Name', $_POST['User_Name']);
-            $stmt->bindParam(':Password', $_POST['Password']);
-            $stmt->bindParam(':zipcode', $_POST['zipcode']);
-            $stmt->bindParam(':District', $_POST['District']);
-            $stmt->bindParam(':Sub_District', $_POST['Sub_District']);
-            $stmt->bindParam(':House_no', $_POST['House_no']);
-            $stmt->bindParam(':Province', $_POST['Province']);
+            $stmt->bindParam(':Track_ID', $_POST['Track_ID']);
+            $stmt->bindParam(':Courior_Name', $_POST['Courior_Name']);
+
             echo '
                 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
@@ -71,7 +66,7 @@
                                 timer: 250000,
                                 showConfirmButton: "ok"
                             }, function(){
-                                    window.location.href = "indexcus.php";
+                                    window.location.href = "indextrack.php";
                             });
                         });                    
                         </script>
@@ -86,7 +81,7 @@
                 icon: "warning",
                 confirmButtonText: "ok",
               }).then(function(){
-                window.location.href = "indexcus.php";
+                window.location.href = "indextrack.php";
               });
             });
           </script>';
@@ -111,22 +106,10 @@
                 <div class="row g-3">
                     <div class="form-group">
                         <h3>เพิ่มข้อมูลผู้ใช้</h3>
-                        <form action="AddCUS.php" method="POST" enctype="multipart/form-data">
-                            <input type="number" class="form-control" placeholder="รหัสผู้ใช้" name="Customer_ID" required>
+                        <form action="Addtrack.php" method="POST" enctype="multipart/form-data">
+                            <input type="number" class="form-control" placeholder="เลขพัสดุ" name="Track_ID" required>
                             <br> <br>
-                            <input type="text" class="form-control" placeholder="ชื่อผู้ใช้" name="User_Name" required>
-                            <br> <br>
-                            <input type="text" class="form-control" placeholder="รหัสผ่าน" name="Password" required>
-                            <br> <br>
-                            <input type="text" class="form-control" placeholder="รหัสไปรษณี" name="zipcode" required>
-                            <br> <br>
-                            <input type="text" class="form-control" placeholder="เขต" name="District" required>
-                            <br> <br>
-                            <input type="text" class="form-control" placeholder="ตำบล" name="Sub_District" required>
-                            <br> <br>
-                            <input type="text" class="form-control" placeholder="บ้านเลขที่" name="House_no" required>
-                            <br> <br>
-                            <input type="text" class="form-control" placeholder="จังหวัด" name="Province" required>
+                            <input type="text" class="form-control" placeholder="ชื่อขนส่ง" name="Courior_Name" required>
                             <br> <br>
                             <input type="submit" value="Submit" name="submit" class="btn btn-success" />
                         </form>
