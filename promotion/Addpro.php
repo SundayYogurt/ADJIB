@@ -34,19 +34,21 @@
     <?php
     require '../connect.php';
 
-    $sql_select = 'SELECT * FROM tbl_tracking';
+    $sql_select = 'SELECT * FROM tbl_promotion';
     $stmt_s = $conn->prepare($sql_select);
     $stmt_s->execute();
 
     if (isset($_POST['submit'])) {
-        if (!empty($_POST['Track_ID'])) {
+        if (!empty($_POST['Promotion_ID'])) {
 
-            $sql = "INSERT INTO tbl_tracking(Track_ID ,Courior_Name) VALUES (:Track_ID, :Courior_Name)";
+            $sql = "INSERT INTO tbl_promotion (Promotion_ID, Promotion_Name, Promotion_Remaining, Promotion_Date, Discount_Used) VALUES (:Promotion_ID, :Promotion_Name, :Promotion_Remaining, :Promotion_Date, :Discount_Used)";
 
             $stmt = $conn->prepare($sql);
-
-            $stmt->bindParam(':Track_ID', $_POST['Track_ID']);
-            $stmt->bindParam(':Courior_Name', $_POST['Courior_Name']);
+            $stmt->bindParam(':Promotion_ID', $_POST['Promotion_ID']);
+            $stmt->bindParam(':Promotion_Name', $_POST['Promotion_Name']);
+            $stmt->bindParam(':Promotion_Remaining', $_POST['Promotion_Remaining']);
+            $stmt->bindParam(':Promotion_Date', $_POST['Promotion_Date']);
+            $stmt->bindParam(':Discount_Used', $_POST['Discount_Used']);
 
             echo '
                 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
@@ -61,12 +63,12 @@
                     
                             swal({
                                 title: "Success!",
-                                text: "Successfuly ADD NEW MEMBER",
+                                text: "Successfuly ADD NEW PROMOTION",
                                 type: "success",
                                 timer: 250000,
                                 showConfirmButton: "ok"
                             }, function(){
-                                    window.location.href = "indextrack.php";
+                                    window.location.href = "indexpro.php";
                             });
                         });                    
                         </script>
@@ -77,11 +79,11 @@
             $(document).ready(function(){
               Swal({
                 title: "ไม่สำเร็จ",
-                text: "ไม่สามารถลบได้",
+                text: "ไม่สามารถเพิ่มได้",
                 icon: "warning",
                 confirmButtonText: "ok",
               }).then(function(){
-                window.location.href = "indextrack.php";
+                window.location.href = "indexpro.php";
               });
             });
           </script>';
@@ -105,12 +107,24 @@
             <div class="col-md-4"> <br>
                 <div class="row g-3">
                     <div class="form-group">
-                        <h3>เพิ่มข้อมูลผู้ใช้</h3>
-                        <form action="Addtrack.php" method="POST" enctype="multipart/form-data">
-                            <input type="number" class="form-control" placeholder="เลขพัสดุ" name="Track_ID" required>
+                        <h3>เพิ่มข้อมูลโปรโมชั่น</h3>
+                        <form action="Addpro.php" method="POST" enctype="multipart/form-data">
+                            <label for="name" class=" col-form-label"> </label>
+                            <input type="number" class="form-control" placeholder="เลขโปรโมชั่น" name="Promotion_ID" required>
                             <br> <br>
-                            <input type="text" class="form-control" placeholder="ชื่อขนส่ง" name="Courior_Name" required>
+                            <label for="name" class=" col-form-label"> </label>
+                            <input type="text" class="form-control" placeholder="ชื่อโปรโมชั่น" name="Promotion_Name" required>
                             <br> <br>
+                            <label for="name" class=" col-form-label"> </label>
+                            <input type="number" class="form-control" placeholder="โปรโมชั่นคงเหลือ" name="Promotion_Remaining" required>
+                            <br> <br>
+                            <label for="name" class=" col-form-label">วันที่หมดโปร</label>
+                            <input type="date" class="form-control" placeholder="วันที่หมดโปร" name="Promotion_Date" required>
+                            <br> <br>
+                            <label for="name" class=" col-form-label"> </label>
+                            <input type="number" class="form-control" placeholder="โปรโมชั่นที่ใช้ไป" name="Discount_Used" required>
+                            <br> <br>
+
                             <input type="submit" value="Submit" name="submit" class="btn btn-success" />
                         </form>
                     </div>

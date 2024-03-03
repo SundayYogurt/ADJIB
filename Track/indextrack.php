@@ -49,7 +49,7 @@
                 </li>
                 <li>
                     <span class="material-symbols-outlined">person</span>
-                    <a href="indexcus.php">customer</a>
+                    <a href="../Customer/indexcus.php">customer</a>
                 </li>
                 <li>
                     <span class="material-symbols-outlined">table_view</span>
@@ -57,7 +57,7 @@
                 </li>
                 <li>
                     <span class="material-symbols-outlined">person</span>
-                    <a href="#">promotion</a>
+                    <a href="../promotion/indexpro.php">promotion</a>
                 </li>
                 <li>
                     <span class="material-symbols-outlined">table_view</span>
@@ -70,7 +70,7 @@
                 </li>
                 <li>
                     <span class="material-symbols-outlined">add</span>
-                    <a href="AddCUS.php">ADD NEW CUSTOMER</a>
+                    <a href="Addtrack.php">ADD NEW tracking</a>
                 </li>
                 <li class="logout-link">
                     <span class="material-symbols-outlined">logout</span>

@@ -66,7 +66,7 @@
                 </li>
                 <li>
                     <span class="material-symbols-outlined">person</span>
-                    <a href="./promotion/indexpro.php">promotion</a>
+                    <a href="#">promotion</a>
                 </li>
                 <li>
                     <span class="material-symbols-outlined">table_view</span>
@@ -79,7 +79,7 @@
                 </li>
                 <li class="logout-link">
                     <span class="material-symbols-outlined">logout</span>
-                    <a onclick="closeWin()">Logout</a>
+                    <a href="javascript:close_window();">Logout</a>
                 </li>
             </ul>
 
@@ -91,7 +91,7 @@
                 ADJIB STORE</h1><br>
             <p>ADMIN PAGE SERVICES</p>
 
-            <section class="container">
+        <section class="container">
                 <div class="card__container swiper">
                     <div class="card__content">
                         <div class="swiper-wrapper">
@@ -197,24 +197,17 @@
             <!--=============== MAIN JS ===============-->
             <script src="assets/js/main.js"></script>
 
-            <script src="js/jquery.min.js"></script>
-            <script src="js/popper.js"></script>
-            <script src="js/bootstrap.min.js"></script>
-            <script src="js/main.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+        
+        <h2 class="mb-5"></h2>
+                <button type="button" class="btn btn-primary py-12 px-4" data-toggle="modal" data-target="#exampleModalCenter">
+                    โฆษณา
+                </button>
 
-            <h2 class="mb-5"></h2>
-            <button type="button" class="btn btn-primary py-12 px-4" data-toggle="modal" data-target="#exampleModalCenter">
-                โฆษณา
-            </button>
-
-            <script>
-                let myWindow;
-
-                function closeWin() {
-                    myWindow.close();
-                }
-            </script>
-            <!-- Modal -->
+                <!-- Modal -->
 
         </section>
 

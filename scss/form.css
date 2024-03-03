@@ -1,0 +1,52 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap);
+
+.form-group {
+    font-family: "Noto Sans Thai", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    width: 25%;
+    padding: 50px;
+    position: absolute;
+    left: 37%;
+    top: 20%;
+    justify-content: center;
+    align-items: center;
+
+
+    border-radius: 20px;
+    /* other styles */
+    background: rgba(39, 39, 39, 0.1);
+    backdrop-filter: blur(60px);
+    /* fallback for old browsers */
+    -webkit-backdrop-filter: blur(60px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.3);
+    background: #f2f2f2;
+
+
+}
+
+body {
+    background-color: hsl(212, 40%, 12%);
+}
+
+h3 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font: 1em prompt;
+}
+
+
+
+.container {
+    display: flex;
+    justify-content: center;
+
+}

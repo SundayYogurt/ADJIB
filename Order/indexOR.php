@@ -57,7 +57,7 @@
                 </li>
                 <li>
                     <span class="material-symbols-outlined">person</span>
-                    <a href="#">promotion</a>
+                    <a href="../promotion/indexpro.php">promotion</a>
                 </li>
                 <li>
                     <span class="material-symbols-outlined">table_view</span>
@@ -70,7 +70,7 @@
                 </li>
                 <li>
                     <span class="material-symbols-outlined">add</span>
-                    <a href="AddOR.php">ADD NEW CUSTOMER</a>
+                    <a href="AddOR.php">ADD NEW ORDER</a>
                 </li>
                 <li class="logout-link">
                     <span class="material-symbols-outlined">logout</span>
@@ -88,14 +88,15 @@
 
                             <thead align="center">
                                 <tr>
-                                    <th width="10%">หมายเลขออเดอร์</th>
-                                    <th width="10%">หมายเลขผู้ใช้</th>
+                                    <th width="3%">เลขออเดอร์</th>
+                                    <th width="3%">เลขผู้ใช้</th>
                                     <th width="20%">ชื่อผู้ใช้</th>
                                     <th width="20%">สินค้า</th>
+                                    <th width="20%">รูป</th>
                                     <th width="20%">โปรโมชั่น</th>
                                     <th width="20%">จำนวน</th>
                                     <th width="20%">วันเวลา</th>
-                                    <th width="20%">รหัสติดตามพัสดุ</th>
+                                    <th width="10%">รหัสติดตามพัสดุ</th>
                                     <th width="5%">แก้ไข</th>
                                     <th width="5%">ลบ</th>
                                 </tr>
@@ -105,20 +106,39 @@
                                 <?php
                                 require '../connect.php';
                                 $sql =
-                                    'SELECT * FROM tbl_customer c, tbl_order o, tbl_order_detail d, tbl_product p WHERE c.Customer_ID = o.Customer_ID AND p.Product_ID = d.Product_ID ';
+                                    'SELECT * FROM tbl_customer c, tbl_order o, tbl_order_detail od, tbl_product p, tbl_promotion pm, tbl_tracking t WHERE c.Customer_ID = o.Customer_ID AND o.Order_ID = od.Order_ID AND t.Track_ID = o.Track_ID AND p.Product_ID = od.Product_ID AND pm.Promotion_ID = od.Promotion_ID';
                                 $stmt = $conn->prepare($sql);
                                 $stmt->execute();
                                 $result = $stmt->fetchAll();
                                 foreach ($result as $r) { ?>
                                     <tr>
-                                        <td><?= $r['Order_ID'] ?></td>
-                                        <td><?= $r['Customer_ID'] ?></td>
-                                        <td><?= $r['User_Name'] ?></td>
-                                        <td><?= $r['Product_Name'] ?></td>
-                                        <td><?= $r['Promotion_Name'] ?></td>
-                                        <td><?= $r['Order_Quantity'] ?></td>
-                                        <td><?= $r['Order_Date_Time'] ?></td>
-                                        <td><?= $r['Track_ID'] ?></td>
+                                        <td>
+                                            <?= $r['Order_ID'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $r['Customer_ID'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $r['User_Name'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $r['Product_Name'] ?>
+                                        </td>
+                                        <div class="boxsize">
+                                            <td><img src="./Picture/<?= $r['Picture']; ?>" width="100px" height="120px" alt="image" class="box" onclick="enlargeImg()" id="img1"></td>
+                                        </div>
+                                        <td>
+                                            <?= $r['Promotion_Name'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $r['Order_Quantity'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $r['Order_Date_Time'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $r['Track_ID'] ?>
+                                        </td>
                                         <td><a href="updateform.php?Order_ID=<?= $r['Order_ID'] ?>&Customer_ID=<?= $r['Customer_ID'] ?>&Order_Date_Time=<?= $r['Order_Date_Time'] ?>&Track_ID=<?= $r['Track_ID'] ?>" class="btn btn-warning btn-sm">แก้ไข</a></td>
                                         <td><a href="delete.php?Order_ID=<?= $r['Order_ID'] ?>&Customer_ID=<?= $r['Customer_ID'] ?>&Order_Date_Time=<?= $r['Order_Date_Time'] ?>&Track_ID=<?= $r['Track_ID'] ?>" class=" btn btn-danger btn-sm " data-toggle=" modal" data-target="#ModalCenter" onclick="return confirm('ยืนยันการลบข้อมูล !!');">ลบ</a></td>
                                     </tr>

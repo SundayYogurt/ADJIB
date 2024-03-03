@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="Picture.css" />
     <link rel="stylesheet" href="blackground.css" />
-    <link rel="stylesheet" href="style3.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <script src="locales.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -21,6 +21,7 @@
     <link href=https://cdn.datatables.net/select/2.0.0/css/select.bootstrap5.css rel="stylesheet">
     <link rel="stylesheet" href="newbg.css" />
     <title>CRUD IT STORE Information </title>
+
 
 </head>
 
@@ -40,7 +41,7 @@
                 </li>
                 <li>
                     <span class="material-symbols-outlined">table_view</span>
-                    <a href="indexPro.php">product</a>
+                    <a href="../Product/indexPro.php">product</a>
                 </li>
                 <li>
                     <span class="material-symbols-outlined">table_view</span>
@@ -52,11 +53,11 @@
                 </li>
                 <li>
                     <span class="material-symbols-outlined">table_view</span>
-                    <a href="../Order/indexOR.php">order</a>
+                    <a href="../order/indexOR.php">order</a>
                 </li>
                 <li>
                     <span class="material-symbols-outlined">person</span>
-                    <a href="../promotion/indexpro.php">promotion</a>
+                    <a href="indexpro.php">promotion</a>
                 </li>
                 <li>
                     <span class="material-symbols-outlined">table_view</span>
@@ -69,7 +70,7 @@
                 </li>
                 <li>
                     <span class="material-symbols-outlined">add</span>
-                    <a href="AddProduct_DB.php">ADD NEW PRODUCT</a>
+                    <a href="Addpro.php">ADD NEW PROMOTION</a>
                 </li>
                 <li class="logout-link">
                     <span class="material-symbols-outlined">logout</span>
@@ -82,17 +83,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12"> <br>
-                        <h3 style="color: white;">รายการสินค้า </h3> <br>
-                        <table id="ITTable" class="display-table table-dark table-striped table-responsive table-bordered table table-hover vw-50 vh-50" data-component="datatable" data-locale="en" data-search="true">
+                        <h3>รายการโปรโมชั่น </h3> <br />
+                        <table id="ITTable" class="display table table-striped nowrap table-hover table-responsive table-bordered table-dark">
 
                             <thead align="center">
                                 <tr>
-                                    <th width="10%">รหัสสินค้า</th>
-                                    <th width="20%">ชื่อสินค้า</th>
-                                    <th width="15%">ราคา</th>
-                                    <th width="10%">ภาพ</th>
-                                    <th width="10%">แบรนด์</th>
-                                    <th width="10%">ประเภท</th>
+                                    <th width="3%">เลขโปรโมชั่น</th>
+                                    <th width="3%">ชื่อโปรโมชั้่น</th>
+                                    <th width="20%">โปรโมชั่นคงเหลือ</th>
+                                    <th width="20%">วันหมดโปรโมชั่น</th>
+                                    <th width="20%">โปรโมชั่นที่ใช้ไปแล้ว</th>
                                     <th width="5%">แก้ไข</th>
                                     <th width="5%">ลบ</th>
                                 </tr>
@@ -102,24 +102,29 @@
                                 <?php
                                 require '../connect.php';
                                 $sql =
-                                    'SELECT * FROM tbl_product p, tbl_classification c WHERE p.Classification_ID = c.Classification_ID';
+                                    'SELECT * FROM tbl_promotion WHERE Promotion_ID ';
                                 $stmt = $conn->prepare($sql);
                                 $stmt->execute();
                                 $result = $stmt->fetchAll();
                                 foreach ($result as $r) { ?>
                                     <tr>
-                                        <td><?= $r['Product_ID'] ?></td>
-                                        <td><?= $r['Product_Name'] ?></td>
-                                        <td><?= $r['Price'] ?></td>
-                                        <div class="boxsize">
-                                            <td><img src="./Picture/<?= $r['Picture']; ?>" width="100px" height="120px" alt="image" class="box" onclick="enlargeImg()" id="img1"></td>
-                                        </div>
-                                        <td><?= $r['Brand'] ?></td>
-                                        <td><?= $r['Classification_Name'] ?></td>
-
-
-                                        <td><a href="updateform.php?Product_ID=<?= $r['Product_ID'] ?>&Product_Name=<?= $r['Product_Name'] ?>&Price=<?= $r['Price'] ?>&Brand=<?= $r['Brand'] ?> " class="btn btn-warning btn-sm">แก้ไข</a></td>
-                                        <td><a href="delete.php?Product_ID=<?= $r['Product_ID'] ?>&Product_Name=<?= $r['Product_Name'] ?>&Price=<?= $r['Price'] ?>&Brand=<?= $r['Brand'] ?>" class="btn btn-danger btn-sm " data-toggle="modal" data-target="#ModalCenter" onclick="return confirm('ยืนยันการลบข้อมูล !!');">ลบ</a></td>
+                                        <td>
+                                            <?= $r['Promotion_ID'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $r['Promotion_Name'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $r['Promotion_Remaining'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $r['Promotion_Date'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $r['Discount_Used'] ?>
+                                        </td>
+                                        <td><a href="updateform.php?Promotion_ID=<?= $r['Promotion_ID'] ?>&Promotion_Name=<?= $r['Promotion_Name'] ?>&Promotion_Remaining=<?= $r['Promotion_Remaining'] ?>&Promotion_Date=<?= $r['Promotion_Date'] ?>&Discount_Used=<?= $r['Discount_Used'] ?>" class="btn btn-warning btn-sm">แก้ไข</a></td>
+                                        <td><a href="delete.php?Promotion_ID=<?= $r['Promotion_ID'] ?>&Promotion_Name=<?= $r['Promotion_Name'] ?>&Promotion_Remaining=<?= $r['Promotion_Remaining'] ?>&Promotion_Date=<?= $r['Promotion_Date'] ?>&Discount_Used=<?= $r['Discount_Used'] ?>" class=" btn btn-danger btn-sm " data-toggle=" modal" data-target="#ModalCenter" onclick="return confirm('ยืนยันการลบข้อมูล !!');">ลบ</a></td>
                                     </tr>
                                 <?php }
                                 ?>
