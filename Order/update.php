@@ -18,7 +18,7 @@
         $stmt->bindParam(':Customer_ID', $_POST['Customer_ID']);
         $stmt->bindParam(':Order_Date_Time', $_POST['Order_Date_Time']);
         $stmt->bindParam(':Track_ID', $_POST['Track_ID']);
-        // print_r($stmt);
+
 
         echo '
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
