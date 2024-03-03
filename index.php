@@ -79,7 +79,8 @@
                 </li>
                 <li class="logout-link">
                     <span class="material-symbols-outlined">logout</span>
-                    <a onclick="closeWin()">Logout</a>
+                    <a href=" https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fcontacts.google.com%2F&ec=GAlANQ&hl=th&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S-1324824393%3A1709462990247046&theme=glif" target="_blank">logout</span>
+
                 </li>
             </ul>
 
@@ -196,6 +197,7 @@
 
             <!--=============== MAIN JS ===============-->
             <script src="assets/js/main.js"></script>
+
 
             <script src="js/jquery.min.js"></script>
             <script src="js/popper.js"></script>

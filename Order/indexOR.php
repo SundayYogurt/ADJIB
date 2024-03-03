@@ -127,6 +127,8 @@
                                         <div class="boxsize">
                                             <td><img src="./Picture/<?= $r['Picture']; ?>" width="100px" height="120px" alt="image" class="box" onclick="enlargeImg()" id="img1"></td>
                                         </div>
+
+
                                         <td>
                                             <?= $r['Promotion_Name'] ?>
                                         </td>
@@ -141,6 +143,7 @@
                                         </td>
                                         <td><a href="updateform.php?Order_ID=<?= $r['Order_ID'] ?>&Customer_ID=<?= $r['Customer_ID'] ?>&Order_Date_Time=<?= $r['Order_Date_Time'] ?>&Track_ID=<?= $r['Track_ID'] ?>" class="btn btn-warning btn-sm">แก้ไข</a></td>
                                         <td><a href="delete.php?Order_ID=<?= $r['Order_ID'] ?>&Customer_ID=<?= $r['Customer_ID'] ?>&Order_Date_Time=<?= $r['Order_Date_Time'] ?>&Track_ID=<?= $r['Track_ID'] ?>" class=" btn btn-danger btn-sm " data-toggle=" modal" data-target="#ModalCenter" onclick="return confirm('ยืนยันการลบข้อมูล !!');">ลบ</a></td>
+
                                     </tr>
                                 <?php }
                                 ?>
