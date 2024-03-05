@@ -41,13 +41,13 @@
     if (isset($_POST['submit'])) {
         if (!empty($_POST['Order_ID'])) {
 
-            $sql = "INSERT INTO tbl_order  (Order_ID, Customer_ID, Order_Date_Time, Track_ID) VALUES (:Order_ID, :Customer_ID, :Order_Date_Time, :Track_ID )";
+            $sql = "INSERT INTO tbl_order_detail (Order_ID, Promotion_ID, Product_ID, Order_Quantity) VALUES (:Order_ID, :Promotion_ID, :Product_ID, :Order_Quantity )";
 
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':Order_ID', $_POST['Order_ID']);
-            $stmt->bindParam(':Customer_ID', $_POST['Customer_ID']);
-            $stmt->bindParam(':Order_Date_Time', $_POST['Order_Date_Time']);
-            $stmt->bindParam(':Track_ID', $_POST['Track_ID']);
+            $stmt->bindParam(':Promotion_ID', $_POST['Promotion_ID']);
+            $stmt->bindParam(':Product_ID', $_POST['Product_ID']);
+            $stmt->bindParam(':Order_Quantity', $_POST['Order_Quantity']);
 
             print_r($_POST);
             echo '
@@ -107,19 +107,19 @@
             <div class="col-md-4"> <br>
                 <div class="row g-3">
                     <div class="form-group">
-                        <h3>เพิ่มข้อมูลออเดอร์</h3>
-                        <form action="AddOR.php" method="POST" enctype="multipart/form-data">
-                            <label for="name" class=" col-form-label"> หมายเลขผู้ใช้, รหัสติดตามพัสดุ ต้องตรงถึงจะเพิ่มได้!!! </label>
+                        <h3>เพิ่มข้อมูลออเดอร์ดีเทล</h3>
+                        <form action="AddOD.php" method="POST" enctype="multipart/form-data">
+                            <label for="name" class=" col-form-label"> โปรโมชั่น และ สินค้า ต้องตรงถึงจะเพิ่มได้!!! </label>
+                            <input type="number" class="form-control" placeholder="เลขออเดอร์" name="Order_ID" required>
+                            <br><br>
+                            </select>
+                            <input type="number" class="form-control" placeholder="โปรโมชั่น" name="Promotion_ID" required>
+                            <br> <br>
+                            <input type="number" class="form-control" placeholder="สินค้า" name="Product_ID" required>
+                            <br> <br>
+                            <input type="text" class="form-control" placeholder="จำนวน" name="Order_Quantity" required>
 
-                            <input type="number" class="form-control" placeholder="หมายเลขออเดอร์" name="Order_ID" required>
-                            <br> <br>
-                            <input type="number" class="form-control" placeholder="หมายเลขผู้ใช้" name="Customer_ID" required>
-                            <br> <br>
-                            <input type="datetime-local" class="form-control" placeholder="วันเวลา" name="Order_Date_Time" required>
-                            <br> <br>
-                            <input type="number" class="form-control" placeholder="รหัสติดตามพัสดุ" name="Track_ID" required>
-                            <br> <br>
-
+                            <br><br>
                             <input type="submit" value="Submit" name="submit" class="btn btn-success" />
                         </form>
                     </div>

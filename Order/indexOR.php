@@ -72,6 +72,10 @@
                     <span class="material-symbols-outlined">add</span>
                     <a href="AddOR.php">ADD NEW ORDER</a>
                 </li>
+                <li>
+                    <span class="material-symbols-outlined">add</span>
+                    <a href="AddOD.php">ADD NEW ORDER DETAIL</a>
+                </li>
                 <li class="logout-link">
                     <span class="material-symbols-outlined">logout</span>
                     <a href="javascript:close_window();">Logout</a>
@@ -84,6 +88,12 @@
                 <div class="row">
                     <div class="col-md-12"> <br>
                         <h3>รายการออเดอร์ </h3> <br />
+                        <style>
+                            .ss {
+                                text-align: left;
+                                width: 1000%;
+                            }
+                        </style>
                         <table id="ITTable" class="display table table-striped nowrap table-hover table-responsive table-bordered table-dark">
 
                             <thead align="center">
@@ -91,7 +101,7 @@
                                     <th width="3%">เลขออเดอร์</th>
                                     <th width="3%">เลขผู้ใช้</th>
                                     <th width="20%">ชื่อผู้ใช้</th>
-                                    <th width="20%">สินค้า</th>
+                                    <th width="15%">สินค้า</th>
                                     <th width="20%">รูป</th>
                                     <th width="20%">โปรโมชั่น</th>
                                     <th width="20%">จำนวน</th>
@@ -138,7 +148,8 @@
                                         <td>
                                             <?= $r['Order_Date_Time'] ?>
                                         </td>
-                                        <td>
+
+                                        <td class="ss">
                                             <?= $r['Track_ID'] ?>
                                         </td>
                                         <td><a href="updateform.php?Order_ID=<?= $r['Order_ID'] ?>&Customer_ID=<?= $r['Customer_ID'] ?>&Order_Date_Time=<?= $r['Order_Date_Time'] ?>&Track_ID=<?= $r['Track_ID'] ?>" class="btn btn-warning btn-sm">แก้ไข</a></td>

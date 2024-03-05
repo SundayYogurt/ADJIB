@@ -34,23 +34,10 @@
 
   if (isset($_GET['Track_ID'])) {
 
-    $sql_select_cus = 'SELECT * FROM tbl_tracking WHERE Track_ID=:Track_ID AND Courior_Name=:Courior_Name ';
-    $stmt = $conn->prepare($sql_select_cus);
-    $stmt->bindParam(':Track_ID', $_GET['Track_ID']);
-    $stmt->bindParam(':Courior_Name', $_GET['Courior_Name']);
-
-    $stmt->execute();
+    $sql_select_track = 'SELECT * FROM tbl_tracking WHERE Track_ID=?';
+    $stmt = $conn->prepare($sql_select_track);
+    $stmt->execute([$_GET['Track_ID']]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    // echo 'Customer_ID' . $_GET['Customer_ID'] . "<br>";
-    // echo 'Customer' . $_GET['User_Name'] . "<br>";
-    // echo 'Customer' . $_GET['Password'] . "<br>";
-    // echo 'Customer' . $_GET['zipcode'] . "<br>";
-    // echo 'Customer' . $_GET['District'] . "<br>";
-    // echo 'Customer' . $_GET['Sub_District'] . "<br>";
-    // echo 'Customer' . $_GET['House_no'] . "<br>";
-    // echo 'Customer_ID' . $_GET['Province'] . "<br>";
-
-    // print_r($result);
   }
 
   ?>
@@ -61,7 +48,7 @@
       <div class="col-md-4"> <br>
         <div class="form-group">
           <h3>ฟอร์มแก้ไขข้อมูลการติดตาม</h3>
-          <form action="update.php" method="POST" align="center">
+          <form action="indextrack.php" method="POST" align="center">
 
             <label for="name" class="col-sm-2 col-form-label"> เลขหมายติดตาม: </label>
 

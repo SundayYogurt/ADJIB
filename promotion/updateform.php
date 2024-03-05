@@ -54,7 +54,7 @@
       <div class="col-md-4"> <br>
         <div class="form-group">
           <h3>ฟอร์มแก้ไขข้อมูลออเดอร์</h3>
-          <form action="update.php" method="POST" align="center">
+          <form action="indexpro.php" method="POST" align="center">
 
             <label for="name" class="col-sm-2 col-form-label"> เลขโปรโมชั่น: </label>
 
