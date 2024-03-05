@@ -80,7 +80,7 @@
                                 timer: 250000,
                                 showConfirmButton: "ok"
                             }, function(){
-                                    window.location.href = "index.php";
+                                    window.location.href = "indexPro.php";
                             });
                         });                    
                         </script>
@@ -95,7 +95,7 @@
                 icon: "warning",
                 confirmButtonText: "ok",
               }).then(function(){
-                window.location.href = "index.php";
+                window.location.href = "indexPro.php";
               });
             });
           </script>';

@@ -58,7 +58,7 @@
                 </li>
                 <li>
                     <span class="material-symbols-outlined">person</span>
-                    <a href="#">promotion</a>
+                    <a href="../promotion/indexpro.php">promotion</a>
                 </li>
                 <li>
                     <span class="material-symbols-outlined">table_view</span>

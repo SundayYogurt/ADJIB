@@ -62,7 +62,7 @@
                     
                             swal({
                                 title: "Success!",
-                                text: "Successfuly ADD NEW MEMBER",
+                                text: "Successfuly ADD NEW order",
                                 type: "success",
                                 timer: 250000,
                                 showConfirmButton: "ok"
@@ -78,7 +78,7 @@
             $(document).ready(function(){
               Swal({
                 title: "ไม่สำเร็จ",
-                text: "ไม่สามารถลบได้",
+                text: "ไม่สามารถเพิ่มได้",
                 icon: "warning",
                 confirmButtonText: "ok",
               }).then(function(){
@@ -106,12 +106,12 @@
             <div class="col-md-4"> <br>
                 <div class="row g-3">
                     <div class="form-group">
-                        <h3>เพิ่มข้อมูลผู้ใช้</h3>
+                        <h3>เพิ่มข้อมูลออเดอร์</h3>
                         <form action="AddOR.php" method="POST" enctype="multipart/form-data">
                             <label for="name" class=" col-form-label"> หมายเลขผู้ใช้, รหัสติดตามพัสดุ ต้องตรงถึงจะเพิ่มได้!!! </label>
+
                             <input type="number" class="form-control" placeholder="หมายเลขออเดอร์" name="Order_ID" required>
                             <br> <br>
-
                             <input type="number" class="form-control" placeholder="หมายเลขผู้ใช้" name="Customer_ID" required>
                             <br> <br>
                             <input type="datetime-local" class="form-control" placeholder="วันเวลา" name="Order_Date_Time" required>

@@ -83,7 +83,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12"> <br>
-                        <h3>รายการลูกค้า </h3> <br />
+                        <h3>รายการออเดอร์ </h3> <br />
                         <table id="ITTable" class="display table table-striped nowrap table-hover table-responsive table-bordered table-dark">
 
                             <thead align="center">
@@ -106,7 +106,7 @@
                                 <?php
                                 require '../connect.php';
                                 $sql =
-                                    'SELECT * FROM tbl_customer c, tbl_order o, tbl_order_detail od, tbl_product p, tbl_promotion pm, tbl_tracking t WHERE c.Customer_ID = o.Customer_ID AND o.Order_ID = od.Order_ID AND t.Track_ID = o.Track_ID AND p.Product_ID = od.Product_ID AND pm.Promotion_ID = od.Promotion_ID';
+                                    'SELECT * FROM tbl_customer c, tbl_order o, tbl_order_detail d, tbl_product p, tbl_promotion m, tbl_tracking t WHERE c.Customer_ID = o.Customer_ID AND o.Order_ID = d.Order_ID AND t.Track_ID = o.Track_ID AND p.Product_ID = d.Product_ID AND m.Promotion_ID = d.Promotion_ID';
                                 $stmt = $conn->prepare($sql);
                                 $stmt->execute();
                                 $result = $stmt->fetchAll();

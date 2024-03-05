@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_POST['Product_ID']) && isset($_POST['Product_Name']) && isset($_POST['Price']) && isset($_POST['Brand'])) {
-    require 'connect.php';
+    require '../connect.php';
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -37,7 +37,7 @@ if (isset($_POST['Product_ID']) && isset($_POST['Product_Name']) && isset($_POST
                         timer: 25000,
                         showConfirmButton: "ok"
                     }, function(){
-                            window.location.href = "index.php";
+                            window.location.href = "indexPro.php";
                     });
                 });                    
                 </script>
@@ -54,7 +54,7 @@ if (isset($_POST['Product_ID']) && isset($_POST['Product_Name']) && isset($_POST
                         timer: 25000,
                         showConfirmButton: "ok"
                     }, function(){
-                            window.location.href = "index.php";
+                            window.location.href = "indexPro.php";
                     });
                 });                    
                 </script>
